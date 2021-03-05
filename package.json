@@ -1,6 +1,6 @@
 {
   "name": "vue-supabase",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A small wrapper for integrating supabase to Vuejs",
   "main": "index.js",
   "engine": {
