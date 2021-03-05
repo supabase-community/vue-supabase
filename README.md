@@ -8,9 +8,10 @@ A supa simple wrapper around Supabase.js to enable usage within Vue.
 yarn add vue-supabase
 ```
 
-import VueSupabase from 'vue-supabase'
 
 ```js
+import VueSupabase from 'vue-supabase'
+
 Vue.use(VueSupabase, {
   supabaseUrl: "",
   supabaseKey: "",
