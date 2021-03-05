@@ -20,5 +20,5 @@ Vue.use(VueSupabase, {
 ```
 
 ```js
-let { data: events, error } = await this.$supabase.from("events").select("*");
+const { data, error } = await this.$supabase.from("events").select("*");
 ```
