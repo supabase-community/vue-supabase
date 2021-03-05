@@ -1,0 +1,36 @@
+{
+  "name": "vue-supabase",
+  "version": "1.0.0",
+  "description": "A small wrapper for integrating supabase to Vuejs",
+  "main": "index.js",
+  "engine": {
+    "node": ">= 1"
+  },
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scottrobertson/vue-supabase.git"
+  },
+  "keywords": [
+    "vue",
+    "custom",
+    "supabase"
+  ],
+  "author": "Scott Robertson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/scottrobertson/vue-supabase/issues"
+  },
+  "homepage": "https://github.com/scottrobertson/vue-supabase#readme",
+  "dependencies": {
+    "@supabase/supabase-js": "^1.4.2"
+  },
+  "peerDependencies": {
+    "vue": ">=1.x.x"
+  },
+  "devDependencies": {
+    "vue": "^2"
+  }
+}
