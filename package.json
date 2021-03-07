@@ -1,6 +1,6 @@
 {
   "name": "vue-supabase",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A small wrapper for integrating supabase to Vuejs",
   "main": "index.js",
   "engine": {
@@ -19,7 +19,12 @@
     "supabase"
   ],
   "author": "Scott Robertson",
+  "types": "index.d.ts",
   "license": "MIT",
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
   "bugs": {
     "url": "https://github.com/scottrobertson/vue-supabase/issues"
   },
