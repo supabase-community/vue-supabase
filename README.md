@@ -1,24 +1,42 @@
 # Vue + Supabase
 
-A supa simple wrapper around Supabase.js to enable usage within Vue.
+A supa simple wrapper around Supabase.js to enable usage within Vue.js.
 
 ## Usage
 
-```
+```shell
+npm install --save vue-supabase
+
+# OR
+
 yarn add vue-supabase
 ```
 
 
-```js
-import VueSupabase from 'vue-supabase'
+```ts
+// main.ts
+import { createApp } from 'vue';
+import { createSupabase } from 'vue-supabase';
 
-Vue.use(VueSupabase, {
-  supabaseUrl: "",
-  supabaseKey: "",
-  supabaseOptions: {},
+import App from './App.vue';
+
+const supabase = createSupabase({
+	url: "https://xyzcompany.supabase.co",
+	key: "public-anon-key",
+	options: {
+		// ...
+	};
 });
+
+createApp(App)
+	.use(supabase)
+	.mount('#app');
 ```
 
 ```js
-const { data, error } = await this.$supabase.from("events").select("*");
+// App.vue
+import { useSupabase } from 'vue-supabase';
+
+const supabase = useSupabase();
+const { data, error } = await supabase.from("events").select("*");
 ```
