@@ -1,47 +1,47 @@
 {
-	"name": "vue-supabase",
-	"version": "2.1.1",
-	"description": "A small wrapper for integrating supabase to Vue.js",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/supabase/vue-supabase.git"
-	},
-	"author": {
-		"name": "Scott Robertson"
-	},
-	"bugs": "https://github.com/supabase/vue-supabase/issues",
-	"homepage": "https://github.com/supabase/vue-supabase#readme",
-	"keywords": [
-		"vue",
-		"custom",
-		"supabase"
-	],
-	"license": "MIT",
-	"main": "dist/index.js",
-	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
-	"files": [
-		"dist"
-	],
-	"engine": {
-		"node": ">= 1"
-	},
-	"scripts": {
-		"dev": "npm run build:base -- --watch",
-		"build": "npm run build:base -- --minify --sourcemap --env.NODE_ENV production",
-		"build:base": "rimraf dist && tsup index.ts --dts --format cjs,esm",
-		"release": "npx bumpp --commit --tag --push && npm run build && npm publish"
-	},
-	"dependencies": {
-		"@supabase/supabase-js": "^1.5.1"
-	},
-	"peerDependencies": {
-		"vue": ">=1.x.x"
-	},
-	"devDependencies": {
-		"rimraf": "^3.0.2",
-		"tsup": "^4.6.1",
-		"typescript": "^4.1.5",
-		"vue": "^3"
-	}
+  "name": "vue-supabase",
+  "version": "2.1.1",
+  "description": "A small wrapper for integrating supabase to Vue.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/supabase/vue-supabase.git"
+  },
+  "author": {
+    "name": "Scott Robertson"
+  },
+  "bugs": "https://github.com/supabase/vue-supabase/issues",
+  "homepage": "https://github.com/supabase/vue-supabase#readme",
+  "keywords": [
+    "vue",
+    "custom",
+    "supabase"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "engine": {
+    "node": ">= 1"
+  },
+  "scripts": {
+    "dev": "npm run build:base -- --watch",
+    "build": "npm run build:base -- --minify --sourcemap --env.NODE_ENV production",
+    "build:base": "rimraf dist && tsup index.ts --dts --format cjs,esm",
+    "release": "npx bumpp --commit --tag --push && npm run build && npm publish"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^1.5.1"
+  },
+  "peerDependencies": {
+    "vue": ">=1.x.x"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2",
+    "tsup": "^4.6.1",
+    "typescript": "^4.1.5",
+    "vue": "^3"
+  }
 }
