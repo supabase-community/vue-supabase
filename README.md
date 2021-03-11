@@ -21,16 +21,16 @@ import { createSupabase } from 'vue-supabase';
 import App from './App.vue';
 
 const supabase = createSupabase({
-	url: "https://xyzcompany.supabase.co",
-	key: "public-anon-key",
-	options: {
-		// ...
-	};
+  url: "https://xyzcompany.supabase.co",
+  key: "public-anon-key",
+  options: {
+    // ...
+  };
 });
 
 createApp(App)
-	.use(supabase)
-	.mount('#app');
+  .use(supabase)
+  .mount('#app');
 ```
 
 ```js
