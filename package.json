@@ -30,7 +30,6 @@
 		"dev": "npm run build:base -- --watch",
 		"build": "npm run build:base -- --minify --sourcemap --env.NODE_ENV production",
 		"build:base": "rimraf dist && tsup index.ts --dts --format cjs,esm",
-		"test": "npm run test",
 		"release": "npx bumpp --commit --tag --push && npm run build && npm publish"
 	},
 	"dependencies": {
