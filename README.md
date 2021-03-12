@@ -1,4 +1,4 @@
-# Vue + Supabase
+# Vue.js + Supabase
 
 A supa simple wrapper around Supabase.js to enable usage within Vue.js.
 
@@ -11,6 +11,12 @@ npm install --save vue-supabase
 
 yarn add vue-supabase
 ```
+
+### Using with Vue.js 2.x
+
+This plugin is designed for Vue.js 3, but you can still use it with Vue.js 2. Please take a look at the v1.x.x tag [here](https://github.com/supabase/vue-supabase/tree/v1.x.x).
+
+### Using with Vue.js 3.x
 
 ```ts
 // main.ts
