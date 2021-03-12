@@ -12,7 +12,6 @@ npm install --save vue-supabase
 yarn add vue-supabase
 ```
 
-
 ```ts
 // main.ts
 import { createApp } from 'vue';
@@ -35,7 +34,7 @@ createApp(App)
 
 ```js
 // App.vue
-import { useSupabase } from 'vue-supabase';
+import { useSupabase } from "vue-supabase";
 
 const supabase = useSupabase();
 const { data, error } = await supabase.from("events").select("*");
