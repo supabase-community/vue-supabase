@@ -1,6 +1,6 @@
 {
   "name": "vue-supabase",
-  "version": "2.1.1",
+  "version": "2.0.0-beta.1",
   "description": "A small wrapper for integrating supabase to Vue.js",
   "repository": {
     "type": "git",
@@ -30,15 +30,16 @@
     "dev": "npm run build:base -- --watch",
     "build": "npm run build:base -- --minify --sourcemap --env.NODE_ENV production",
     "build:base": "rimraf dist && tsup index.ts --dts --format cjs,esm",
-    "release": "npx bumpp --commit --tag --push && npm run build && npm publish"
+    "publish": "npm run build && npm publish"
   },
   "dependencies": {
     "@supabase/supabase-js": "^1.5.1"
   },
   "peerDependencies": {
-    "vue": ">=1.x.x"
+    "vue": ">=3.x.x"
   },
   "devDependencies": {
+    "bumpp": "^6.0.6",
     "rimraf": "^3.0.2",
     "tsup": "^4.6.1",
     "typescript": "^4.1.5",
