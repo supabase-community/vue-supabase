@@ -1,12 +1,12 @@
 'use strict';
 
-import { createClient } from '@supabase/supabase-js'
+const { createClient } = require('@supabase/supabase-js')
 
-export default {
+module.exports = {
   install: function (Vue, options) {
     const supabase = createClient(options.supabaseUrl, options.supabaseKey, options.supabaseOptions)
 
-    Object.defineProperties(Vue.prototype, {
+        Object.defineProperties(Vue.prototype, {
       $supabase: {
         get: function() {
           return supabase;
@@ -16,4 +16,4 @@ export default {
 
     Vue.supabase = supabase;
   }
-};
+}
