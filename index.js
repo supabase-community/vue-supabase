@@ -1,5 +1,7 @@
 'use strict';
-import {inject, isVue3} from "vue-demi"
+Object.defineProperty(exports, '__esModule', { value: true });
+
+const { inject, isVue3 } = require('vue-demi');
 
 const { createClient } = require('@supabase/supabase-js')
 
@@ -8,9 +10,10 @@ const supabaseKey = 'supabase';
 function useSupabase(key = null) { 
   return inject(key !== null ? key : supabaseKey);
 }
+exports.useSupabase = useSupabase;
+exports.supabaseKey = supabaseKey;
+
 exports['default'] = {
-  supabaseKey,
-  useSupabase,
   install: function (app, options) {
     const supabase = createClient(options.supabaseUrl, options.supabaseKey, options.supabaseOptions)
 
