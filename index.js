@@ -8,7 +8,7 @@ const supabaseKey = 'supabase';
 function useSupabase(key = null) { 
   return inject(key !== null ? key : supabaseKey);
 }
-module.exports = {
+exports['default'] = {
   supabaseKey,
   useSupabase,
   install: function (app, options) {
@@ -30,3 +30,5 @@ module.exports = {
     }
   }
 }
+
+module.exports = exports['default'];
