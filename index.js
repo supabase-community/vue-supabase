@@ -10,10 +10,11 @@ const supabaseKey = 'supabase';
 function useSupabase(key = null) { 
   return inject(key !== null ? key : supabaseKey);
 }
-exports.useSupabase = useSupabase;
-exports.supabaseKey = supabaseKey;
+
 
 exports['default'] = {
+  supabaseKey,
+  useSupabase,
   install: function (app, options) {
     const supabase = createClient(options.supabaseUrl, options.supabaseKey, options.supabaseOptions)
 
