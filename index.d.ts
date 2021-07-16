@@ -7,3 +7,5 @@ declare module 'vue/types/vue' {
     $supabase: SupabaseClient
   }
 }
+
+export function useSupabase(key?: string): SupabaseClient;
