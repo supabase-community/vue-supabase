@@ -8,5 +8,11 @@ declare module 'vue/types/vue' {
   }
 }
 
+/**
+ * Used to get the injected instance of SupabaseClient.
+ * If using Vuejs 2.x, this function will be undefined, please use
+ * `this.$supabase` instead.
+ * @returns SupabaseClient
+ */
 export function useSupabase(key?: string): SupabaseClient;
 export const supabaseKey: string;
