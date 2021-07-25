@@ -25,6 +25,10 @@ Vue.use(VueSupabase, {
 });
 ```
 
+```
+const { data, error } = await this.$supabase.from("events").select("*");
+```
+
 ### Vue 3.x
 ```js
 import VueSupabase from 'vue-supabase'
@@ -40,12 +44,12 @@ app.use(VueSupabase, {
 app.mount(...)
 ```
 
-### Options API
+#### Options API
 ```js
 const { data, error } = await this.$supabase.from("events").select("*");
 ```
 
-### Composition API
+#### Composition API
 ```js
 import { useSupabase } from 'vue-supabase';
 
