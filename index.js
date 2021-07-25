@@ -23,6 +23,7 @@ function install(app, options) {
         },
       },
     });
+    app.supabase = supabase;
   }
 }
 
