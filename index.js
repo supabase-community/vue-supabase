@@ -3,10 +3,10 @@ const { isVue3, inject } = require('vue-demi');
 
 const { createClient } = require('@supabase/supabase-js')
 
-const supabasesymbol = Symbol('supabase');
+const supabaseSymbol = Symbol('supabase');
 
 function useSupabase() { 
-  return inject(supabasesymbol);
+  return inject(supabaseSymbol);
 }
 
 function install(app, options) {
@@ -14,7 +14,7 @@ function install(app, options) {
 
   if (isVue3){
     app.config.globalProperties.$supabase = supabase;
-    app.provide(supabasesymbol, supabase);
+    app.provide(supabaseSymbol, supabase);
   } else {
     Object.defineProperties(app.prototype, {
       $supabase: {
