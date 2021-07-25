@@ -48,5 +48,5 @@ import { useSupabase } from 'vue-supabase';
 
 const supabase = useSupabase()
 
-const { data, error } = await this.$supabase.from("events").select("*");
+const { data, error } = await supabase.from("events").select("*");
 ```
