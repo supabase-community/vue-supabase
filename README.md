@@ -9,7 +9,7 @@ yarn add vue-supabase
 # Vue 2.x
 yarn add @vue/composition-api vue-supabase
 ```
-Note: Currently `@vue/composition-api` is required for this package to work for projects using Vue 2.x
+Note: Currently `@vue/composition-api` is required for this package to work for projects using Vue 2.x even if the composition api is not used in that particular project
 ## Usage
 ### Vue 2.x
 ```js
