@@ -15,7 +15,6 @@ declare module 'vue/types/vue' {
  * @returns SupabaseClient
  */
 export function useSupabase(key?: string): SupabaseClient;
-export const supabaseKey: string;
 
 export default {
   install(Vue: typeof Vue, options: any): void
