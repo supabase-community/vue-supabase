@@ -21,7 +21,7 @@ import VueSupabase from 'vue-supabase'
 Vue.use(VueSupabase, {
   supabaseUrl: '',
   supabaseKey: '',
-  supabaseOptions: {},
+  supabaseOptions: {}
 });
 ```
 
@@ -36,10 +36,10 @@ import VueSupabase from 'vue-supabase'
 const app = createApp(...)
 
 app.use(VueSupabase, {
-    supabaseUrl: '',
-    supaaseKey: '',
-    supabaseOptions: {},
-  })
+  supabaseUrl: '',
+  supaaseKey: '',
+  supabaseOptions: {}
+})
 
 app.mount(...)
 ```
