@@ -6,18 +6,21 @@ A supa simple wrapper around Supabase.js to enable usage within Vue.
 ```bash
 # Vue 3.x
 yarn add vue-supabase
+
 # Vue 2.x
 yarn add @vue/composition-api vue-supabase
 ```
-Note: Currently `@vue/composition-api` is required for this package to work for projects using Vue 2.x even if the composition api is not used in that particular project
+
+Note: Currently `@vue/composition-api` is required for this package to work for projects using Vue 2.x.
+
 ## Usage
 ### Vue 2.x
 ```js
 import VueSupabase from 'vue-supabase'
 
 Vue.use(VueSupabase, {
-  supabaseUrl: "",
-  supabaseKey: "",
+  supabaseUrl: '',
+  supabaseKey: '',
   supabaseOptions: {},
 });
 ```
