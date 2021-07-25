@@ -25,7 +25,7 @@ Vue.use(VueSupabase, {
 });
 ```
 
-```
+```js
 const { data, error } = await this.$supabase.from("events").select("*");
 ```
 
