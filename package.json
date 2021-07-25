@@ -30,12 +30,11 @@
   },
   "homepage": "https://github.com/scottrobertson/vue-supabase#readme",
   "dependencies": {
-    "@supabase/supabase-js": "^1.4.2"
+    "@supabase/supabase-js": "^1.4.2",
+    "vue-demi": "^0.11.2"
   },
   "peerDependencies": {
-    "vue": ">=1.x.x"
-  },
-  "devDependencies": {
-    "vue": "^2"
+    "@vue/composition-api": "^1.0.4",
+    "vue": "^2.0.0 || >=3.0.0"
   }
 }
