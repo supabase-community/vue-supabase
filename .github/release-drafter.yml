@@ -11,3 +11,6 @@ version-resolver:
     labels:
       - "minor"
   default: minor
+
+name-template: "$RESOLVED_VERSION"
+tag-template: "v$RESOLVED_VERSION"
