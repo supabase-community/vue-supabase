@@ -1,7 +1,13 @@
 // @ts-ignore
-import { isVue3, inject, isRef } from 'vue-demi';
-
-import { createClient } from '@supabase/supabase-js';
+import { isVue3, inject } from 'vue-demi';
+import {
+  createClient,
+  SupabaseClient,
+  SupabaseClientOptions,
+  SupabaseRealtimePayload,
+  AuthUser,
+  AuthSession,
+} from '@supabase/supabase-js';
 
 const supabaseSymbol = Symbol('supabase');
 
@@ -11,7 +17,7 @@ const supabaseSymbol = Symbol('supabase');
  * `this.$supabase` instead.
  * @returns SupabaseClient
  */
-export function useSupabase() { 
+export function useSupabase(): SupabaseClient { 
   return inject(supabaseSymbol);
 }
 
@@ -31,4 +37,12 @@ export function install(app: any, options: any) {
     });
     app.supabase = supabase;
   }
+}
+
+export {
+  SupabaseClient,
+  SupabaseClientOptions,
+  SupabaseRealtimePayload,
+  AuthUser,
+  AuthSession,
 }
