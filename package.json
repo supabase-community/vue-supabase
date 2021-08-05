@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "npm run test",
-    "build": "echo 'building'"
+    "build": "echo 'building...'"
   },
   "repository": {
     "type": "git",
