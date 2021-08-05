@@ -7,7 +7,8 @@
     "node": ">= 1"
   },
   "scripts": {
-    "test": "npm run test"
+    "test": "npm run test",
+    "build": "echo 'building'"
   },
   "repository": {
     "type": "git",
