@@ -1,6 +1,7 @@
-const { isVue3, inject } = require('vue-demi');
+// @ts-ignore
+import { isVue3, inject, isRef } from 'vue-demi';
 
-const { createClient } = require('@supabase/supabase-js')
+import { createClient } from '@supabase/supabase-js';
 
 const supabaseSymbol = Symbol('supabase');
 
