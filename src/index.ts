@@ -1,5 +1,5 @@
-// @ts-ignore
-import { isVue3, inject } from 'vue-demi';
+// @ts-ignore , vue-demi seems to be not strongly typed so typescript freaks out.
+import { isVue3, inject, App, Vue2 } from 'vue-demi';
 import {
   createClient,
   SupabaseClient,
@@ -21,7 +21,13 @@ export function useSupabase(): SupabaseClient {
   return inject(supabaseSymbol);
 }
 
-export function install(app: any, options: any) {
+type Options = {
+  supabaseUrl: string;
+  supabaseKey: string;
+  supabaseOptions: SupabaseClientOptions;
+}
+
+export function install(app: typeof Vue2 | App, options: Options) {
   const supabase = createClient(options.supabaseUrl, options.supabaseKey, options.supabaseOptions)
 
   if (isVue3){
