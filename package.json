@@ -2,9 +2,9 @@
   "name": "vue-supabase",
   "version": "2.0.0",
   "description": "A small wrapper for integrating supabase to Vuejs",
-  "main": "dist/cjs/index.js",
+  "main": "dist/index.js",
   "module": "dist/esm/index.js",
-  "types": "dist/types/index.d.ts",
+  "types": "dist/index.d.ts",
   "engine": {
     "node": ">= 1"
   },
@@ -13,8 +13,7 @@
     "test": "echo 'no tests to run'",
     "build": "run-p build:*",
     "build:cjs": "tsc -p config/tsconfig.cjs.json",
-    "build:esm": "tsc -p config/tsconfig.esm.json",
-    "build:types": "tsc -p config/tsconfig.types.json"
+    "build:esm": "tsc -p config/tsconfig.esm.json"
   },
   "repository": {
     "type": "git",
