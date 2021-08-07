@@ -10,7 +10,7 @@
   },
   "scripts": {
     "prepare": "run-s build",
-    "prepack": "run-s build",
+    "postinstall": "run-s build",
     "test": "echo 'no tests to run'",
     "build": "run-p build:*",
     "build:cjs": "tsc -p config/tsconfig.cjs.json",
