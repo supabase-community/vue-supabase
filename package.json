@@ -12,9 +12,9 @@
     "prepare": "npm run build",
     "test": "echo 'no tests to run'",
     "build": "run-p build:*",
-    "build:cjs": "rimraf dist/cjs/* && tsc -p config/tsconfig.cjs.json",
-    "build:esm": "rimraf dist/esm/* && tsc -p config/tsconfig.esm.json",
-    "build:types": "rimraf dist/types/* && tsc -p config/tsconfig.types.json"
+    "build:cjs": "tsc -p config/tsconfig.cjs.json",
+    "build:esm": "tsc -p config/tsconfig.esm.json",
+    "build:types": "tsc -p config/tsconfig.types.json"
   },
   "repository": {
     "type": "git",
@@ -42,7 +42,6 @@
   },
   "devDependencies": {
     "npm-run-all": "^4.1.5",
-    "rimraf": "^3.0.2",
     "typescript": "^4.3.5"
   }
 }
