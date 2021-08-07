@@ -9,6 +9,7 @@
     "node": ">= 1"
   },
   "scripts": {
+    "prepare": "npm run build",
     "test": "echo 'no tests to run'",
     "build": "yarn build:cjs && yarn build:esm && yarn build:types",
     "build:cjs": "rimraf dist/cjs/* && tsc -p config/tsconfig.cjs.json",
@@ -26,9 +27,6 @@
   ],
   "author": "Scott Robertson",
   "license": "MIT",
-  "files": [
-    "dist"
-  ],
   "bugs": {
     "url": "https://github.com/scottrobertson/vue-supabase/issues"
   },
