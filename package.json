@@ -23,7 +23,8 @@
   "keywords": [
     "vue",
     "custom",
-    "supabase"
+    "supabase",
+    "vue-supabase"
   ],
   "author": "Scott Robertson",
   "license": "MIT",
