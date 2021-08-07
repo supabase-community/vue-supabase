@@ -17,7 +17,7 @@ const supabaseSymbol = Symbol('supabase');
  * `this.$supabase` instead.
  * @returns SupabaseClient
  */
-export function useSupabase(): SupabaseClient { 
+function useSupabase(): SupabaseClient { 
   return inject(supabaseSymbol);
 }
 
@@ -27,7 +27,7 @@ type Options = {
   supabaseOptions: SupabaseClientOptions;
 }
 
-export function install(app: typeof Vue2 | App, options: Options) {
+function install(app: typeof Vue2 | App, options: Options) {
   const supabase = createClient(options.supabaseUrl, options.supabaseKey, options.supabaseOptions)
 
   if (isVue3){
@@ -51,4 +51,9 @@ export {
   SupabaseRealtimePayload,
   AuthUser,
   AuthSession,
+}
+
+export default {
+  install,
+  useSupabase
 }
