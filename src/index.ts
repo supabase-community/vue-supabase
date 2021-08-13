@@ -17,7 +17,7 @@ const supabaseSymbol = Symbol('supabase');
  * `this.$supabase` instead.
  * @returns SupabaseClient
  */
-function useSupabase(): SupabaseClient { 
+export function useSupabase(): SupabaseClient { 
   return inject(supabaseSymbol);
 }
 
@@ -54,6 +54,5 @@ export {
 }
 
 export default {
-  install,
-  useSupabase
+  install
 }
