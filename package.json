@@ -9,13 +9,9 @@
     "node": ">= 1"
   },
   "scripts": {
-    "prepare": "run-s build",
-    "postinstall": "run-s build",
+    "prepare": "npm run build",
     "test": "echo 'no tests to run'",
-    "build": "run-p build:*",
-    "build:cjs": "tsc -p config/tsconfig.cjs.json",
-    "build:esm": "tsc -p config/tsconfig.esm.json",
-    "build:types": "tsc -p config/tsconfig.types.json"
+    "build": "tsc -p config/tsconfig.cjs.json && tsc -p config/tsconfig.esm.json && tsc -p config/tsconfig.types.json"
   },
   "repository": {
     "type": "git",
@@ -42,7 +38,6 @@
     "vue": "^2.0.0 || >=3.0.0"
   },
   "devDependencies": {
-    "npm-run-all": "^4.1.5",
     "typescript": "^4.3.5"
   }
 }
