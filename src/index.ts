@@ -1,5 +1,5 @@
 // @ts-ignore , vue-demi seems to be not strongly typed so typescript freaks out.
-import { isVue3, inject, App, Vue2 } from 'vue-demi';
+import { isVue3, inject, App, Vue2, Plugin, PluginObject } from 'vue-demi';
 import {
   createClient,
   SupabaseClient,
@@ -55,4 +55,4 @@ export {
 
 export default {
   install
-}
+} as PluginObject<Options> | Plugin;
