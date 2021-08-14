@@ -1,4 +1,4 @@
-// @ts-ignore , vue-demi seems to be not strongly typed so typescript freaks out.
+/** @ts-ignore , vue-demi seems to be not strongly typed so typescript freaks out. */
 import { isVue3, inject, App, Vue2, Plugin, PluginObject } from 'vue-demi';
 import {
   createClient,
