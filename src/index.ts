@@ -53,6 +53,8 @@ export {
   AuthSession,
 }
 
-export default {
+const VueSupabase: PluginObject<Options> | Plugin = {
   install
-} as PluginObject<Options> | Plugin;
+}
+
+export default VueSupabase;
