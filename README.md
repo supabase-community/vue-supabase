@@ -37,7 +37,7 @@ const app = createApp(...)
 
 app.use(VueSupabase, {
   supabaseUrl: '',
-  supaaseKey: '',
+  supabaseKey: '',
   supabaseOptions: {}
 })
 
