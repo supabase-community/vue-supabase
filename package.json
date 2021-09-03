@@ -2,12 +2,16 @@
   "name": "vue-supabase",
   "version": "2.1.0",
   "description": "A small wrapper for integrating supabase to Vuejs",
-  "main": "index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
   "engine": {
     "node": ">= 1"
   },
   "scripts": {
-    "test": "npm run test"
+    "prepare": "npm run build",
+    "test": "echo 'no tests to run'",
+    "build": "tsc -p config/tsconfig.cjs.json && tsc -p config/tsconfig.esm.json && tsc -p config/tsconfig.types.json"
   },
   "repository": {
     "type": "git",
@@ -16,15 +20,11 @@
   "keywords": [
     "vue",
     "custom",
-    "supabase"
+    "supabase",
+    "vue-supabase"
   ],
   "author": "Scott Robertson",
-  "types": "index.d.ts",
   "license": "MIT",
-  "files": [
-    "index.js",
-    "index.d.ts"
-  ],
   "bugs": {
     "url": "https://github.com/scottrobertson/vue-supabase/issues"
   },
@@ -36,5 +36,8 @@
   "peerDependencies": {
     "@vue/composition-api": "^1.0.4",
     "vue": "^2.0.0 || >=3.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.3.5"
   }
 }
