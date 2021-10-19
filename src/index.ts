@@ -1,49 +1,35 @@
 /** @ts-ignore , vue-demi seems to be not strongly typed so typescript freaks out. */
-import { isVue3, inject, App, Vue2, Plugin, PluginObject } from 'vue-demi';
+import { App, Vue2, Plugin, PluginObject } from "vue-demi";
 import {
-  createClient,
   SupabaseClient,
   SupabaseClientOptions,
   SupabaseRealtimePayload,
   AuthUser,
   AuthSession,
-} from '@supabase/supabase-js';
-
-const supabaseSymbol = Symbol('supabase');
-
-/**
- * Used to get the injected instance of SupabaseClient.
- * If using Vuejs 2.x, this function will be undefined, please use
- * `this.$supabase` instead.
- * @returns SupabaseClient
- */
-export function useSupabase(): SupabaseClient { 
-  return inject(supabaseSymbol);
-}
+} from "@supabase/supabase-js";
+import { VueSupabaseClient } from "./VueSupabaseClient";
+import {
+  useSupabase,
+  useSupabaseAuth,
+  useSupabaseStorage,
+} from "./composables";
 
 type Options = {
   supabaseUrl: string;
   supabaseKey: string;
   supabaseOptions: SupabaseClientOptions;
-}
+};
 
 function install(app: typeof Vue2 | App, options: Options) {
-  const supabase = createClient(options.supabaseUrl, options.supabaseKey, options.supabaseOptions)
-
-  if (isVue3){
-    app.config.globalProperties.$supabase = supabase;
-    app.provide(supabaseSymbol, supabase);
-  } else {
-    Object.defineProperties(app.prototype, {
-      $supabase: {
-        get: function() {
-          return supabase;
-        },
-      },
-    });
-    app.supabase = supabase;
-  }
+  const supabase = new VueSupabaseClient(
+    options.supabaseUrl,
+    options.supabaseKey,
+    options.supabaseOptions
+  );
+  supabase.install(app);
 }
+
+export { useSupabase, useSupabaseAuth, useSupabaseStorage };
 
 export {
   SupabaseClient,
@@ -51,10 +37,10 @@ export {
   SupabaseRealtimePayload,
   AuthUser,
   AuthSession,
-}
+};
 
 const VueSupabase: PluginObject<Options> | Plugin = {
-  install
-}
+  install,
+};
 
 export default VueSupabase;
