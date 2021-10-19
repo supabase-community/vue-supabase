@@ -6,7 +6,7 @@ export class VueSupabaseClient extends SupabaseClient {
   constructor(
     supabaseUrl: string,
     supabaseKey: string,
-    supabaseOptions: SupabaseClientOptions
+    supabaseOptions?: SupabaseClientOptions
   ) {
     super(supabaseUrl, supabaseKey, supabaseOptions);
   }
@@ -36,7 +36,7 @@ export function createVueSupabase({
 }: {
   supabaseUrl: string;
   supabaseKey: string;
-  supabaseOptions: SupabaseClientOptions;
+  supabaseOptions?: SupabaseClientOptions;
 }) {
   return new VueSupabaseClient(supabaseUrl, supabaseKey, supabaseOptions);
 }
