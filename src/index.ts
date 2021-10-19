@@ -7,7 +7,7 @@ import {
   AuthUser,
   AuthSession,
 } from "@supabase/supabase-js";
-import { VueSupabaseClient } from "./VueSupabaseClient";
+import { VueSupabaseClient, createVueSupabase } from "./VueSupabaseClient";
 import {
   useSupabase,
   useSupabaseAuth,
@@ -29,14 +29,16 @@ function install(app: typeof Vue2 | App, options: Options) {
   supabase.install(app);
 }
 
-export { useSupabase, useSupabaseAuth, useSupabaseStorage };
+export { useSupabase, useSupabaseAuth, useSupabaseStorage, createVueSupabase };
 
 export {
   SupabaseClient,
   SupabaseClientOptions,
   SupabaseRealtimePayload,
   AuthUser,
+  AuthUser as User,
   AuthSession,
+  AuthSession as Session,
 };
 
 const VueSupabase: PluginObject<Options> | Plugin = {

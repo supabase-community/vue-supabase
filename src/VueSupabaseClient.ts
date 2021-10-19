@@ -28,3 +28,15 @@ export class VueSupabaseClient extends SupabaseClient {
     }
   }
 }
+
+export function createVueSupabase({
+  supabaseUrl,
+  supabaseKey,
+  supabaseOptions,
+}: {
+  supabaseUrl: string;
+  supabaseKey: string;
+  supabaseOptions: SupabaseClientOptions;
+}) {
+  return new VueSupabaseClient(supabaseUrl, supabaseKey, supabaseOptions);
+}
