@@ -1581,7 +1581,7 @@ vue-demi@^0.11.2:
 
 vue-supabase@./vue-supabase.tgz:
   version "2.2.1"
-  resolved "./vue-supabase.tgz#9177974bae39024e602f34a3a10f1533c5f2c60e"
+  resolved "./vue-supabase.tgz#9fafc955fe6d6927e006bf860cdca56ddf3db623"
   dependencies:
     "@supabase/supabase-js" "^1.24.0"
     vue-demi "^0.11.2"
