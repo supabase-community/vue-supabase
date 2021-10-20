@@ -1,5 +1,5 @@
 /** @ts-ignore , vue-demi seems to be not strongly typed so typescript freaks out. */
-import { App, Vue2, Plugin, PluginObject } from "vue-demi";
+import { App, Vue2, Plugin, PluginObject, isVue2 } from "vue-demi";
 import {
   SupabaseClient,
   SupabaseClientOptions,
@@ -13,6 +13,13 @@ import {
   useSupabaseAuth,
   useSupabaseStorage,
 } from "./composables";
+
+// @ts-expect-error: Vue2 types for a Vue# project
+declare module "vue/types/vue" {
+  interface Vue {
+    $supabase: SupabaseClient;
+  }
+}
 
 type Options = {
   supabaseUrl: string;
