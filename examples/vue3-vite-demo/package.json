@@ -1,0 +1,21 @@
+{
+  "name": "vue3-vite-demo",
+  "version": "0.0.0",
+  "scripts": {
+    "clean": "rimraf ./*.tgz",
+    "pack-parent": "cd ../.. && npm pack --pack-destination=examples/vue3-vite-demo",
+    "rename-tarball": "rename *.tgz vue-supabase",
+    "install-tarball": "yarn add ./vue-supabase.tgz",
+    "dev": "yarn clean && yarn pack-parent && yarn rename-tarball && yarn install-tarball && vite"
+  },
+  "dependencies": {
+    "vue": "^3.2.16",
+    "vue-supabase": "./vue-supabase.tgz"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.9.3",
+    "rename-cli": "^6.2.1",
+    "rimraf": "^3.0.2",
+    "vite": "^2.6.4"
+  }
+}

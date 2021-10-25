@@ -11,6 +11,7 @@
   "scripts": {
     "prepare": "npm run build",
     "test": "echo 'no tests to run'",
+    "lint": "eslint . --ext .ts",
     "build": "tsc -p config/tsconfig.cjs.json && tsc -p config/tsconfig.esm.json && tsc -p config/tsconfig.types.json"
   },
   "repository": {
@@ -30,7 +31,7 @@
   },
   "homepage": "https://github.com/scottrobertson/vue-supabase#readme",
   "dependencies": {
-    "@supabase/supabase-js": "^1.4.2",
+    "@supabase/supabase-js": "^1.24.0",
     "vue-demi": "^0.11.2"
   },
   "peerDependencies": {
@@ -38,6 +39,12 @@
     "vue": "^2.0.0 || >=3.0.0"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.1.0",
+    "@typescript-eslint/parser": "^5.1.0",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.4.1",
     "typescript": "^4.3.5"
   }
 }
