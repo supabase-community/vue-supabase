@@ -72,5 +72,5 @@ import { useSuabaseAuth, useSupabaseStorage } from "vue-supabase";
 const auth = useSupabaseAuth();
 const storage = useSupabaseStorage();
 const { data } = await storage.listBuckets();
-auth.signOut();
+await auth.signOut();
 ```
