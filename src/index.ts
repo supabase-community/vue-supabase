@@ -14,9 +14,16 @@ import {
   useSupabaseStorage,
 } from "./composables";
 
-import { Options } from "../vue-supabase";
+export type SupabasePluginOptions = {
+  supabaseUrl: string;
+  supabaseKey: string;
+  supabaseOptions: SupabaseClientOptions;
+};
 
-function install(app: typeof Vue2 | App, options: Options) {
+export function install(
+  app: typeof Vue2 | App,
+  options: SupabasePluginOptions
+) {
   const supabase = new VueSupabaseClient(
     options.supabaseUrl,
     options.supabaseKey,
@@ -37,7 +44,7 @@ export {
   AuthSession as Session,
 };
 
-const VueSupabase: PluginObject<Options> | Plugin = {
+const VueSupabase: PluginObject<SupabasePluginOptions> | Plugin = {
   install,
 };
 
