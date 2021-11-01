@@ -1,5 +1,5 @@
 /** @ts-ignore , vue-demi seems to be not strongly typed so typescript freaks out. */
-import { App, Vue2, Plugin, PluginObject, isVue2 } from "vue-demi";
+import { App, Vue2, Plugin, PluginObject } from "vue-demi";
 import {
   SupabaseClient,
   SupabaseClientOptions,
@@ -14,20 +14,23 @@ import {
   useSupabaseStorage,
 } from "./composables";
 
-// @ts-expect-error: Vue2 types for a Vue# project
+// @ts-expect-error: Module vue/types/vue cannot be found.
 declare module "vue/types/vue" {
   interface Vue {
     $supabase: SupabaseClient;
   }
 }
 
-type Options = {
+export type SupabasePluginOptions = {
   supabaseUrl: string;
   supabaseKey: string;
   supabaseOptions: SupabaseClientOptions;
 };
 
-function install(app: typeof Vue2 | App, options: Options) {
+export function install(
+  app: typeof Vue2 | App,
+  options: SupabasePluginOptions
+) {
   const supabase = new VueSupabaseClient(
     options.supabaseUrl,
     options.supabaseKey,
@@ -48,7 +51,7 @@ export {
   AuthSession as Session,
 };
 
-const VueSupabase: PluginObject<Options> | Plugin = {
+const VueSupabase: PluginObject<SupabasePluginOptions> | Plugin = {
   install,
 };
 

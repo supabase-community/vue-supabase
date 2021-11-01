@@ -91,10 +91,10 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 
 @Component
 export default class HelloWorld extends Vue {
-  @Prop() private msg!: string;
+  @Prop() public msg!: string;
 
   mounted() {
-    console.log("mounted with supabase: ", !!this.$supabase);
+    // console.log("mounted with supabase: ", !!this.$supabase);
   }
 }
 </script>
