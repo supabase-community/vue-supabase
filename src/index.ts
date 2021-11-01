@@ -14,6 +14,13 @@ import {
   useSupabaseStorage,
 } from "./composables";
 
+// @ts-expect-error: Module vue/types/vue cannot be found.
+declare module "vue/types/vue" {
+  interface Vue {
+    $supabase: SupabaseClient;
+  }
+}
+
 export type SupabasePluginOptions = {
   supabaseUrl: string;
   supabaseKey: string;

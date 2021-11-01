@@ -1030,7 +1030,7 @@
   dependencies:
     cross-fetch "^3.1.0"
 
-"@supabase/supabase-js@^1.24.0":
+"@supabase/supabase-js@^1.25.2":
   version "1.25.2"
   resolved "https://registry.yarnpkg.com/@supabase/supabase-js/-/supabase-js-1.25.2.tgz#9c208a0c35e0e6c82c6d819aa6f2cb5e5a82f18e"
   integrity sha512-pRwFuZQD5srzdFrVkZgblxcB1XRpDQa8FUR0JuU8Qo6W1tdd3eL7uUnx+TU1W6VcFqS19q3hGsL5/M0UyvI+XQ==
@@ -8646,10 +8646,10 @@ vue-class-component@^7.2.3:
   resolved "https://registry.yarnpkg.com/vue-class-component/-/vue-class-component-7.2.6.tgz#8471e037b8e4762f5a464686e19e5afc708502e4"
   integrity sha512-+eaQXVrAm/LldalI272PpDe3+i4mPis0ORiMYxF6Ae4hyuCh15W8Idet7wPUEs4N4YptgFHGys4UrgNQOMyO6w==
 
-vue-demi@^0.11.2:
-  version "0.11.4"
-  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.11.4.tgz#6101992fe4724cf5634018a16e953f3052e94e2a"
-  integrity sha512-/3xFwzSykLW2HiiLie43a+FFgNOcokbBJ+fzvFXd0r2T8MYohqvphUyDQ8lbAwzQ3Dlcrb1c9ykifGkhSIAk6A==
+vue-demi@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.12.0.tgz#b202a01cdfc635443e41faea697d624caac0fa73"
+  integrity sha512-eggsbQSQEJKlvQrtrJLx4J44MIVq5+Z7QetIEh1Na+ZWLgt5Fq0qskQ1QmckTTEoFcUdn36c4K23EjtXZhws7w==
 
 vue-hot-reload-api@^2.3.0:
   version "2.3.4"
@@ -8690,11 +8690,11 @@ vue-style-loader@^4.1.0, vue-style-loader@^4.1.2:
     loader-utils "^1.0.2"
 
 vue-supabase@./vue-supabase.tgz:
-  version "2.2.1"
-  resolved "./vue-supabase.tgz#9fafc955fe6d6927e006bf860cdca56ddf3db623"
+  version "2.2.2"
+  resolved "./vue-supabase.tgz#5d45f85cb157ea638bec9f30a21384cac6888491"
   dependencies:
-    "@supabase/supabase-js" "^1.24.0"
-    vue-demi "^0.11.2"
+    "@supabase/supabase-js" "^1.25.2"
+    vue-demi "^0.12.0"
 
 vue-template-compiler@^2.6.11:
   version "2.6.14"
