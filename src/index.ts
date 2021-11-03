@@ -6,6 +6,7 @@ import {
   SupabaseRealtimePayload,
   AuthUser,
   AuthSession,
+  Subscription,
 } from "@supabase/supabase-js";
 import { VueSupabaseClient, createVueSupabase } from "./VueSupabaseClient";
 import {
@@ -49,6 +50,7 @@ export {
   AuthUser as User,
   AuthSession,
   AuthSession as Session,
+  Subscription,
 };
 
 const VueSupabase: PluginObject<SupabasePluginOptions> | Plugin = {
