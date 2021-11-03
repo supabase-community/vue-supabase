@@ -1,6 +1,6 @@
 {
   "name": "vue-supabase",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "A small wrapper for integrating supabase to Vuejs",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
