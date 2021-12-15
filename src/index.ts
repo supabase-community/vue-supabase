@@ -1,19 +1,7 @@
 /** @ts-ignore , vue-demi seems to be not strongly typed so typescript freaks out. */
 import { App, Vue2, Plugin, PluginObject } from "vue-demi";
-import {
-  SupabaseClient,
-  SupabaseClientOptions,
-  SupabaseRealtimePayload,
-  AuthUser,
-  AuthSession,
-  Subscription,
-} from "@supabase/supabase-js";
-import { VueSupabaseClient, createVueSupabase } from "./VueSupabaseClient";
-import {
-  useSupabase,
-  useSupabaseAuth,
-  useSupabaseStorage,
-} from "./composables";
+import { SupabaseClient, SupabaseClientOptions } from "@supabase/supabase-js";
+import { VueSupabaseClient } from "./VueSupabaseClient";
 
 // @ts-expect-error: Module vue/types/vue cannot be found.
 declare module "vue/types/vue" {
@@ -40,7 +28,15 @@ export function install(
   supabase.install(app);
 }
 
-export { useSupabase, useSupabaseAuth, useSupabaseStorage, createVueSupabase };
+const VueSupabasePlugin: PluginObject<SupabasePluginOptions> | Plugin = {
+  install,
+};
+
+export {
+  useSupabase,
+  useSupabaseAuth,
+  useSupabaseStorage,
+} from "./composables";
 
 export {
   SupabaseClient,
@@ -51,10 +47,6 @@ export {
   AuthSession,
   AuthSession as Session,
   Subscription,
-};
+} from "@supabase/supabase-js";
 
-const VueSupabase: PluginObject<SupabasePluginOptions> | Plugin = {
-  install,
-};
-
-export default VueSupabase;
+export default VueSupabasePlugin;
