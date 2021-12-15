@@ -36,6 +36,8 @@ export {
   useSupabase,
   useSupabaseAuth,
   useSupabaseStorage,
+  useSupabaseFrom,
+  useOnAuthStateChange,
 } from "./composables";
 
 export {
