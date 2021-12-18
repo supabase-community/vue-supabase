@@ -20,6 +20,11 @@ export class VueSupabaseClient extends SupabaseClient {
         configurable: true,
       });
     } else {
+      app.mixin({
+        provide: () => ({
+          [supabaseSymbol]: self,
+        }),
+      });
       Object.defineProperty(app.prototype, "$supabase", {
         get: () => self,
         configurable: true,

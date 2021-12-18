@@ -33,14 +33,6 @@ const VueSupabasePlugin: PluginObject<SupabasePluginOptions> | Plugin = {
 };
 
 export {
-  useSupabase,
-  useSupabaseAuth,
-  useSupabaseStorage,
-  useSupabaseFrom,
-  useOnAuthStateChange,
-} from "./composables";
-
-export {
   SupabaseClient,
   SupabaseClientOptions,
   SupabaseRealtimePayload,
@@ -50,5 +42,9 @@ export {
   AuthSession as Session,
   Subscription,
 } from "@supabase/supabase-js";
+
+export * from "./composables";
+
+export { createVueSupabase } from "./VueSupabaseClient";
 
 export default VueSupabasePlugin;

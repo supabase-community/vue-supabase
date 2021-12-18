@@ -35,18 +35,18 @@ type AuthChangeHandler = (
   session: Session | null
 ) => void;
 
-export function useOnAuthStateChange(callback?: AuthChangeHandler): void {
+export function useOnAuthStateChange(callback: AuthChangeHandler): void {
   const client = useSupabase();
 
   onMounted(() => {
     if (client.auth.session()) {
-      callback?.("SIGNED_IN", client.auth.session());
+      callback("SIGNED_IN", client.auth.session());
     }
   });
 
   const { data: authListener } = client.auth.onAuthStateChange(
     (event, session) => {
-      callback?.(event, session);
+      callback(event, session);
     }
   );
 
