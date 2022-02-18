@@ -1,10 +1,23 @@
 {
   "name": "vue-supabase",
-  "version": "2.2.3",
+  "version": "2.2.4",
   "description": "A small wrapper for integrating supabase to Vuejs",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/types/index.d.ts",
+  "keywords": [
+    "vue",
+    "custom",
+    "supabase",
+    "vue-supabase"
+  ],
+  "author": "Supabase Community",
+  "license": "MIT",
+  "homepage": "https://github.com/supabase-community/vue-supabase#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/supabase-community/vue-supabase.git"
+  },
+  "bugs": {
+    "url": "https://github.com/supabase-community/vue-supabase/issues"
+  },
   "engine": {
     "node": ">= 1"
   },
@@ -14,22 +27,9 @@
     "lint": "eslint . --ext .ts",
     "build": "tsc -p config/tsconfig.cjs.json && tsc -p config/tsconfig.esm.json && tsc -p config/tsconfig.types.json"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/scottrobertson/vue-supabase.git"
-  },
-  "keywords": [
-    "vue",
-    "custom",
-    "supabase",
-    "vue-supabase"
-  ],
-  "author": "Scott Robertson",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/scottrobertson/vue-supabase/issues"
-  },
-  "homepage": "https://github.com/scottrobertson/vue-supabase#readme",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
   "dependencies": {
     "@supabase/supabase-js": "^1.25.2",
     "vue-demi": "^0.11.2"
