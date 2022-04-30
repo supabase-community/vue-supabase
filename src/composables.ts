@@ -30,6 +30,11 @@ export function useSupabaseFrom(): SupabaseClient["from"] {
   return supabase.from;
 }
 
+export function useSupabaseFunctions(): SupabaseClient["functions"] {
+  const supabase = useSupabase();
+  return supabase.functions;
+}
+
 type AuthChangeHandler = (
   event: AuthChangeEvent,
   session: Session | null
