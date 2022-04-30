@@ -1,6 +1,6 @@
 {
   "name": "vue-supabase",
-  "version": "2.2.4",
+  "version": "2.3.0",
   "description": "A small wrapper for integrating supabase to Vuejs",
   "keywords": [
     "vue",
