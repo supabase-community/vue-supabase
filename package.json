@@ -1,6 +1,6 @@
 {
   "name": "vue-supabase",
-  "version": "2.2.4",
+  "version": "2.3.0",
   "description": "A small wrapper for integrating supabase to Vuejs",
   "keywords": [
     "vue",
@@ -31,20 +31,21 @@
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
   "dependencies": {
-    "@supabase/supabase-js": "^1.25.2",
-    "vue-demi": "^0.11.2"
+    "@supabase/supabase-js": "^1.35.2",
+    "@vue/composition-api": "^1.6.0",
+    "vue-demi": "^0.12.5"
   },
   "peerDependencies": {
     "@vue/composition-api": "^1.0.4",
     "vue": "^2.0.0 || >=3.0.0"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.1.0",
-    "@typescript-eslint/parser": "^5.1.0",
-    "eslint": "^8.0.1",
-    "eslint-config-prettier": "^8.3.0",
+    "@typescript-eslint/eslint-plugin": "^5.21.0",
+    "@typescript-eslint/parser": "^5.21.0",
+    "eslint": "^8.14.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "prettier": "^2.4.1",
-    "typescript": "^4.4.4"
+    "prettier": "^2.6.2",
+    "typescript": "^4.6.4"
   }
 }
