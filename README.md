@@ -67,7 +67,7 @@ const { data, error } = await supabase.from("events").select("*");
 Here are a couple of composables available with Vue 3.x or Vue 2.x + Composition API
 
 ```js
-import { useSuabaseAuth, useSupabaseStorage } from "vue-supabase";
+import { useSupabaseAuth, useSupabaseStorage } from "vue-supabase";
 
 const auth = useSupabaseAuth();
 const storage = useSupabaseStorage();
