@@ -2,13 +2,14 @@
 import { Vue2, App, isVue3 } from "vue-demi";
 import { SupabaseClient, SupabaseClientOptions } from "@supabase/supabase-js";
 import supabaseSymbol from "./symbol";
-export class VueSupabaseClient extends SupabaseClient {
+
+export class VueSupabaseClient<SchemaName> extends SupabaseClient {
   constructor(
     supabaseUrl: string,
     supabaseKey: string,
-    supabaseOptions?: SupabaseClientOptions
+    supabaseOptions?: SupabaseClientOptions<SchemaName>
   ) {
-    super(supabaseUrl, supabaseKey, supabaseOptions);
+    super(supabaseUrl, supabaseKey, supabaseOptions as any);
   }
 
   install(app: typeof Vue2 | App) {
@@ -34,14 +35,18 @@ export class VueSupabaseClient extends SupabaseClient {
   }
 }
 
-export function createVueSupabase({
+export function createVueSupabase<SchemaName>({
   supabaseUrl,
   supabaseKey,
   supabaseOptions,
 }: {
   supabaseUrl: string;
   supabaseKey: string;
-  supabaseOptions?: SupabaseClientOptions;
+  supabaseOptions?: SupabaseClientOptions<SchemaName>;
 }) {
-  return new VueSupabaseClient(supabaseUrl, supabaseKey, supabaseOptions);
+  return new VueSupabaseClient<SchemaName>(
+    supabaseUrl,
+    supabaseKey,
+    supabaseOptions
+  );
 }

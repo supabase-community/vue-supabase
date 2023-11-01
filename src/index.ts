@@ -10,15 +10,15 @@ declare module "vue/types/vue" {
   }
 }
 
-export type SupabasePluginOptions = {
+export type SupabasePluginOptions<SchemaName> = {
   supabaseUrl: string;
   supabaseKey: string;
-  supabaseOptions: SupabaseClientOptions;
+  supabaseOptions: SupabaseClientOptions<SchemaName>;
 };
 
-export function install(
+export function install<SchemaName>(
   app: typeof Vue2 | App,
-  options: SupabasePluginOptions
+  options: SupabasePluginOptions<SchemaName>
 ) {
   const supabase = new VueSupabaseClient(
     options.supabaseUrl,
@@ -28,14 +28,14 @@ export function install(
   supabase.install(app);
 }
 
-const VueSupabasePlugin: PluginObject<SupabasePluginOptions> | Plugin = {
-  install,
-};
+const VueSupabasePlugin: PluginObject<SupabasePluginOptions<unknown>> | Plugin =
+  {
+    install,
+  };
 
 export {
   SupabaseClient,
   SupabaseClientOptions,
-  SupabaseRealtimePayload,
   AuthUser,
   AuthUser as User,
   AuthSession,

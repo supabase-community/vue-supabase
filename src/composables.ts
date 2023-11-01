@@ -43,9 +43,10 @@ type AuthChangeHandler = (
 export function useOnAuthStateChange(callback: AuthChangeHandler): void {
   const client = useSupabase();
 
-  onMounted(() => {
-    if (client.auth.session()) {
-      callback("SIGNED_IN", client.auth.session());
+  onMounted(async () => {
+    const { data } = await client.auth.getSession();
+    if (data?.session) {
+      callback("SIGNED_IN", data.session);
     }
   });
 
@@ -56,6 +57,6 @@ export function useOnAuthStateChange(callback: AuthChangeHandler): void {
   );
 
   onUnmounted(() => {
-    authListener?.unsubscribe();
+    authListener?.subscription?.unsubscribe();
   });
 }
