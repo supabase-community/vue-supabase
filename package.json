@@ -1,51 +1,67 @@
 {
-  "name": "vue-supabase",
-  "version": "2.3.0",
-  "description": "A small wrapper for integrating supabase to Vuejs",
+  "name": "@supabase-community/vue",
+  "version": "3.0.0",
+  "description": "A minimal Vue 3 integration layer for Supabase.",
   "keywords": [
     "vue",
-    "custom",
+    "vue3",
     "supabase",
-    "vue-supabase"
+    "@supabase-community/vue"
   ],
   "author": "Supabase Community",
   "license": "MIT",
-  "homepage": "https://github.com/supabase-community/vue-supabase#readme",
+  "homepage": "https://github.com/supabase-community/vue#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/supabase-community/vue-supabase.git"
+    "url": "git+https://github.com/supabase-community/vue.git"
   },
   "bugs": {
-    "url": "https://github.com/supabase-community/vue-supabase/issues"
+    "url": "https://github.com/supabase-community/vue/issues"
   },
-  "engine": {
-    "node": ">= 1"
+  "engines": {
+    "node": ">=20"
   },
   "scripts": {
-    "prepare": "npm run build",
-    "test": "echo 'no tests to run'",
+    "build": "tsc -p tsconfig.json --outDir dist --declaration --declarationMap false",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
     "lint": "eslint . --ext .ts",
-    "build": "tsc -p config/tsconfig.cjs.json && tsc -p config/tsconfig.esm.json && tsc -p config/tsconfig.types.json"
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/types/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "dependencies": {
-    "@supabase/supabase-js": "^1.35.2",
-    "@vue/composition-api": "^1.6.0",
-    "vue-demi": "^0.12.5"
+    "@supabase/supabase-js": "^2.52.0"
   },
   "peerDependencies": {
-    "@vue/composition-api": "^1.0.4",
-    "vue": "^2.0.0 || >=3.0.0"
+    "vue": "^3.0.0"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.21.0",
-    "@typescript-eslint/parser": "^5.21.0",
-    "eslint": "^8.14.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "prettier": "^2.6.2",
-    "typescript": "^4.6.4"
+    "@types/node": "^24.2.0",
+    "@typescript-eslint/eslint-plugin": "^8.17.0",
+    "@typescript-eslint/parser": "^8.17.0",
+    "eslint": "^9.25.0",
+    "eslint-config-prettier": "^10.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.5.0",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4",
+    "vue": "^3.5.4",
+    "vue-eslint-parser": "^9.0.0"
   }
 }

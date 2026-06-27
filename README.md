@@ -1,76 +1,87 @@
-# Vue + Supabase
+# vue-supabase v3
 
-A supa simple wrapper around Supabase.js to enable usage within Vue.
+A minimal Vue 3 integration layer for Supabase that focuses on a single composable: `useSupabaseClient()`.
+
+## What it does
+
+This package provides a thin, typed wrapper around the official Supabase JavaScript client for Vue 3 applications. It keeps the API close to the official SDK so you can use `supabase.auth`, `supabase.from`, and other features directly.
 
 ## Installation
 
 ```bash
-# Vue 3.x
-yarn add vue-supabase
-
-# Vue 2.x
-yarn add @vue/composition-api vue-supabase
+npm install @supabase-community/vue
 ```
 
-Note: Currently `@vue/composition-api` is required for this package to work for projects using Vue 2.x.
+## Initialize once
 
-## Usage
+```ts
+import { useSupabaseClient } from "@supabase-community/vue";
 
-### Vue 2.x
-
-```js
-import VueSupabase from "vue-supabase";
-
-Vue.use(VueSupabase, {
-  supabaseUrl: "",
-  supabaseKey: "",
-  supabaseOptions: {},
+const supabase = useSupabaseClient({
+  supabaseUrl: import.meta.env.VITE_SUPABASE_URL,
+  supabaseKey: import.meta.env.VITE_SUPABASE_ANON_KEY,
 });
 ```
 
-```js
-const { data, error } = await this.$supabase.from("events").select("*");
+## Reuse the shared client later
+
+```ts
+import { useSupabaseClient } from "@supabase-community/vue";
+
+const supabase = useSupabaseClient();
+const { data, error } = await supabase.from("profiles").select("*");
 ```
 
-### Vue 3.x
+## Use an existing client instance
 
-```js
-import VueSupabase from 'vue-supabase'
+```ts
+import { createClient } from "@supabase/supabase-js";
+import { useSupabaseClient } from "@supabase-community/vue";
 
-const app = createApp(...)
-
-app.use(VueSupabase, {
-  supabaseUrl: '',
-  supabaseKey: '',
-  supabaseOptions: {}
-})
-
-app.mount(...)
+const client = createClient("https://example.supabase.co", "anon-key");
+useSupabaseClient({ client });
 ```
 
-#### Options API
+## Typed Database support
 
-```js
-const { data, error } = await this.$supabase.from("events").select("*");
+```ts
+import { useSupabaseClient } from "@supabase-community/vue";
+
+interface Database {
+  public: {
+    Tables: {
+      profiles: {
+        Row: { id: string; name: string | null };
+        Insert: { id?: string; name?: string | null };
+        Update: { name?: string | null };
+      };
+    };
+  };
+}
+
+const supabase = useSupabaseClient<Database>({
+  supabaseUrl: import.meta.env.VITE_SUPABASE_URL,
+  supabaseKey: import.meta.env.VITE_SUPABASE_ANON_KEY,
+});
+
+const { data } = await supabase.from("profiles").select("*");
 ```
 
-#### Composition API
+## Auth
 
-```js
-import { useSupabase } from "vue-supabase";
+Auth stays close to the official Supabase client API:
 
-const supabase = useSupabase();
+```ts
+const supabase = useSupabaseClient();
 
-const { data, error } = await supabase.from("events").select("*");
+await supabase.auth.signInWithPassword({
+  email: "user@example.com",
+  password: "password",
+});
 ```
 
-Here are a couple of composables available with Vue 3.x or Vue 2.x + Composition API
+## Notes
 
-```js
-import { useSupabaseAuth, useSupabaseStorage } from "vue-supabase";
-
-const auth = useSupabaseAuth();
-const storage = useSupabaseStorage();
-const { data } = await storage.listBuckets();
-await auth.signOut();
-```
+- The package intentionally keeps the surface area small.
+- There is a single shared client instance per module.
+- Reinitialization with a different configuration is rejected to keep behavior predictable.

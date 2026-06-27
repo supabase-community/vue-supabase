@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "es2020",
     "strictNullChecks": true,
     "module": "commonjs",
     "strict": true,
@@ -9,8 +9,14 @@
     "rootDir": "src",
     "sourceMap": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["es2020"]
   },
-  "include": ["src/**/*"],
+  "include": [
+    "src/index.ts",
+    "src/state.ts",
+    "src/types.ts",
+    "src/useSupabaseClient.ts"
+  ],
   "exclude": ["node_modules", "dist"]
 }
