@@ -19,7 +19,7 @@
     "url": "https://github.com/supabase-community/vue/issues"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json --outDir dist --declaration --declarationMap false",
