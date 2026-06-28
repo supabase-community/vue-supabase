@@ -4,10 +4,10 @@ This package provides a typed wrapper around the official Supabase JavaScript cl
 
 ## Features
 
-* Vue 3 composable `useSupabaseClient`
-* Authentication support
-* Use supabase-js isomorphic client
-* TypeScript support
+- Vue 3 composable `useSupabaseClient`
+- Authentication support
+- Use supabase-js isomorphic client
+- TypeScript support
 
 ## Getting started
 
@@ -76,7 +76,7 @@ channel
   .on(
     "postgres_changes",
     { event: "*", schema: "public", table: "profiles" },
-    (payload) => {
+    payload => {
       console.log("Change received:", payload);
     }
   )

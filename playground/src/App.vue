@@ -22,7 +22,8 @@ onMounted(async () => {
 
     rows.value = (data ?? []) as Row[];
   } catch (error) {
-    errorMessage.value = error instanceof Error ? error.message : "Unknown error";
+    errorMessage.value =
+      error instanceof Error ? error.message : "Unknown error";
   } finally {
     loading.value = false;
   }
