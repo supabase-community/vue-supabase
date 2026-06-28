@@ -27,7 +27,8 @@
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "lint": "eslint . --ext .ts",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "dev": "cd playground && npm run dev"
   },
   "main": "dist/index.js",
   "module": "dist/index.js",
