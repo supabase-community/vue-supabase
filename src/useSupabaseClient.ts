@@ -13,9 +13,9 @@ import type { UseSupabaseClientOptions } from "./types";
  * initializing one from a URL and anon key. Once initialized, subsequent
  * calls without options return the shared client.
  */
-export function useSupabaseClient<
-  Database extends Record<string, never> = Record<string, never>,
->(options?: UseSupabaseClientOptions<Database>): SupabaseClient<Database> {
+export function useSupabaseClient<Database = Record<string, never>>(
+  options?: UseSupabaseClientOptions<Database>
+): SupabaseClient<Database> {
   if (options?.client) {
     setSupabaseClient(options.client);
     return options.client;

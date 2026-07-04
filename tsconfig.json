@@ -6,7 +6,6 @@
     "strict": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
-    "rootDir": "src",
     "sourceMap": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
@@ -16,7 +15,8 @@
     "src/index.ts",
     "src/state.ts",
     "src/types.ts",
-    "src/useSupabaseClient.ts"
+    "src/useSupabaseClient.ts",
+    "test/**/*.ts"
   ],
   "exclude": ["node_modules", "dist"]
 }

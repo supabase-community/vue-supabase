@@ -99,6 +99,7 @@ interface Database {
         Row: { id: string; name: string | null };
         Insert: { id?: string; name?: string | null };
         Update: { name?: string | null };
+        Relationships: [];
       };
     };
   };

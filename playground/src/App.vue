@@ -2,9 +2,24 @@
 import { computed, onMounted, ref } from "vue";
 import { useSupabaseClient } from "../../src";
 
-type Row = Record<string, unknown>;
+interface Database {
+  public: {
+    Tables: {
+      countries: {
+        Row: { name: string | null; code: string | null };
+        Insert: { name?: string | null; code?: string | null };
+        Update: { name?: string | null; code?: string | null };
+        Relationships: [];
+      };
+    };
+    Views: Record<string, never>;
+    Functions: Record<string, never>;
+  };
+}
 
-const supabase = useSupabaseClient();
+type Row = Database["public"]["Tables"]["countries"]["Row"];
+
+const supabase = useSupabaseClient<Database>();
 const loading = ref(true);
 const errorMessage = ref<string | null>(null);
 const rows = ref<Row[]>([]);
@@ -20,7 +35,7 @@ onMounted(async () => {
       throw queryError;
     }
 
-    rows.value = (data ?? []) as Row[];
+    rows.value = data ?? [];
   } catch (error) {
     errorMessage.value =
       error instanceof Error ? error.message : "Unknown error";

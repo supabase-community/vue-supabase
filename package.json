@@ -25,6 +25,7 @@
     "build": "tsc -p tsconfig.json --outDir dist --declaration --declarationMap false",
     "test": "vitest run",
     "typecheck": "tsc --noEmit -p tsconfig.json",
+    "typecheck:playground": "vue-tsc --noEmit -p playground/tsconfig.json",
     "lint": "eslint . --ext .ts",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
@@ -63,6 +64,7 @@
     "typescript": "^5.8.3",
     "vitest": "^3.2.4",
     "vue": "^3.5.4",
-    "vue-eslint-parser": "^9.0.0"
+    "vue-eslint-parser": "^9.0.0",
+    "vue-tsc": "^2.1.8"
   }
 }
