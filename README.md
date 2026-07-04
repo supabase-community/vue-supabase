@@ -145,11 +145,10 @@ await supabase.auth.signInWithPassword({
 
 ## Development
 
-1. Clone this repository
-2. Install dependencies using `npm install`
-3. Prepare development server using `pnpm dev:prepare`
-4. Build module using `pnpm build`
-5. Launch playground using `pnpm dev`
+1. Clone this repository.
+2. Install dependencies using `npm install`.
+3. Build the package using `npm run build`.
+4. Launch the playground using `npm run dev`.
 
 ## License
 
