@@ -1,76 +1,155 @@
-# Vue + Supabase
+# @supabase-community/vue
 
-A supa simple wrapper around Supabase.js to enable usage within Vue.
+This package provides a typed wrapper around the official Supabase JavaScript client for Vue 3 applications. It keeps the API close to the official SDK so you can use `supabase.auth`, `supabase.from`, and other features directly.
 
-## Installation
+## Features
+
+- Vue 3 composable `useSupabaseClient`
+- Authentication support
+- Use supabase-js isomorphic client
+- TypeScript support
+
+## Getting started
+
+1. Install the plugin
 
 ```bash
-# Vue 3.x
-yarn add vue-supabase
-
-# Vue 2.x
-yarn add @vue/composition-api vue-supabase
+npm install @supabase-community/vue
 ```
 
-Note: Currently `@vue/composition-api` is required for this package to work for projects using Vue 2.x.
+2. Add required environment variables:
 
-## Usage
+```bash
+# .env
+VITE_SUPABASE_URL="https://example.supabase.co"
+VITE_SUPABASE_ANON_KEY="<your_publishable_key>"
+```
 
-### Vue 2.x
+3. Register a client:
 
-```js
-import VueSupabase from "vue-supabase";
+```ts
+// main.ts
+import { useSupabaseClient } from "@supabase-community/vue";
 
-Vue.use(VueSupabase, {
-  supabaseUrl: "",
-  supabaseKey: "",
-  supabaseOptions: {},
+const supabase = useSupabaseClient({
+  supabaseUrl: import.meta.env.VITE_SUPABASE_URL,
+  supabaseKey: import.meta.env.VITE_SUPABASE_ANON_KEY,
 });
 ```
 
-```js
-const { data, error } = await this.$supabase.from("events").select("*");
+4. Use the client in your Vue app
+
+```ts
+// App.vue
+<script setup lang="ts">
+import { useSupabaseClient } from "@supabase-community/vue";
+
+const supabase = useSupabaseClient();
+const { data, error } = await supabase.from("profiles").select("*");
+</script>
+
+<template>
+  <ul>
+    <li v-for="profile in data" :key="profile.id">
+      {{ profile }}
+    </li>
+  </ul>
+</template>
 ```
 
-### Vue 3.x
+And that's it! You are good to go!
 
-```js
-import VueSupabase from 'vue-supabase'
+## Advanced
 
-const app = createApp(...)
+This section covers a few common advanced patterns that work naturally with the composable.
 
-app.use(VueSupabase, {
-  supabaseUrl: '',
-  supabaseKey: '',
-  supabaseOptions: {}
-})
+### Realtime
 
-app.mount(...)
+Realtime subscriptions work directly through the Supabase client, so you can react to database changes in your Vue app.
+
+```ts
+const supabase = useSupabaseClient();
+
+const channel = supabase.channel("profiles-updates");
+
+channel
+  .on(
+    "postgres_changes",
+    { event: "*", schema: "public", table: "profiles" },
+    payload => {
+      console.log("Change received:", payload);
+    }
+  )
+  .subscribe();
 ```
 
-#### Options API
+### TypeScript
 
-```js
-const { data, error } = await this.$supabase.from("events").select("*");
+You can either define your own local types or generate them from your Supabase project with the CLI. The generated types are especially useful when your schema evolves over time.
+
+Local type registration:
+
+```ts
+import { useSupabaseClient } from "@supabase-community/vue";
+
+interface Database {
+  public: {
+    Tables: {
+      profiles: {
+        Row: { id: string; name: string | null };
+        Insert: { id?: string; name?: string | null };
+        Update: { name?: string | null };
+        Relationships: [];
+      };
+    };
+  };
+}
+
+const supabase = useSupabaseClient<Database>({
+  supabaseUrl: import.meta.env.VITE_SUPABASE_URL,
+  supabaseKey: import.meta.env.VITE_SUPABASE_ANON_KEY,
+});
 ```
 
-#### Composition API
+Generate types from the Supabase CLI:
 
-```js
-import { useSupabase } from "vue-supabase";
-
-const supabase = useSupabase();
-
-const { data, error } = await supabase.from("events").select("*");
+```bash
+npx supabase login
+npx supabase gen types typescript --project-id <project-id> --schema public > src/types/supabase.ts
 ```
 
-Here are a couple of composables available with Vue 3.x or Vue 2.x + Composition API
+Then use the generated types in your app:
 
-```js
-import { useSupabaseAuth, useSupabaseStorage } from "vue-supabase";
+```ts
+import { useSupabaseClient } from "@supabase-community/vue";
+import type { Database } from "./types/supabase";
 
-const auth = useSupabaseAuth();
-const storage = useSupabaseStorage();
-const { data } = await storage.listBuckets();
-await auth.signOut();
+const supabase = useSupabaseClient<Database>({
+  supabaseUrl: import.meta.env.VITE_SUPABASE_URL,
+  supabaseKey: import.meta.env.VITE_SUPABASE_ANON_KEY,
+});
 ```
+
+### Auth
+
+Auth stays close to the official Supabase client API and works the same way as in the core SDK.
+
+```ts
+const supabase = useSupabaseClient();
+
+await supabase.auth.signInWithPassword({
+  email: "user@example.com",
+  password: "password",
+});
+```
+
+## Development
+
+1. Clone this repository.
+2. Install dependencies using `npm install`.
+3. Build the package using `npm run build`.
+4. Launch the playground using `npm run dev`.
+
+## License
+
+[MIT License](./LICENSE)
