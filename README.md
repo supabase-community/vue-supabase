@@ -2,6 +2,8 @@
 
 This package provides a typed wrapper around the official Supabase JavaScript client for Vue 3 applications. It keeps the API close to the official SDK so you can use `supabase.auth`, `supabase.from`, and other features directly.
 
+*This package is aimed to work with modern Vue 3. To use it with Vue 2, check out https://github.com/supabase-community/vue-supabase/tree/v2.3.0*
+
 ## Features
 
 - Vue 3 composable `useSupabaseClient`
