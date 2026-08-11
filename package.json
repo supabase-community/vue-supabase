@@ -1,5 +1,5 @@
 {
-  "name": "@supabase-community/vue",
+  "name": "@supabase-community/vue-supabase",
   "version": "3.0.0",
   "description": "A minimal Vue 3 integration layer for Supabase.",
   "keywords": [
@@ -10,13 +10,13 @@
   ],
   "author": "Supabase Community",
   "license": "MIT",
-  "homepage": "https://github.com/supabase-community/vue#readme",
+  "homepage": "https://github.com/supabase-community/vue-supabase#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/supabase-community/vue.git"
+    "url": "git+https://github.com/supabase-community/vue-supabase.git"
   },
   "bugs": {
-    "url": "https://github.com/supabase-community/vue/issues"
+    "url": "https://github.com/supabase-community/vue-supabase/issues"
   },
   "engines": {
     "node": ">=22"
