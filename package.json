@@ -1,5 +1,5 @@
 {
-  "name": "@supabase-community/vue-supabase",
+  "name": "@supabase-community/vue",
   "version": "3.0.0",
   "description": "A minimal Vue 3 integration layer for Supabase.",
   "keywords": [
