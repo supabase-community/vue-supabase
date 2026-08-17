@@ -1,4 +1,4 @@
-# @supabase-community/vue
+# @supabase-community/vue-supabase
 
 This package provides a typed wrapper around the official Supabase JavaScript client for Vue 3 applications. It keeps the API close to the official SDK so you can use `supabase.auth`, `supabase.from`, and other features directly.
 
@@ -16,7 +16,7 @@ _This package is aimed to work with modern Vue 3. To use it with Vue 2, check ou
 1. Install the plugin
 
 ```bash
-npm install @supabase-community/vue
+npm install @supabase-community/vue-supabase
 ```
 
 2. Add required environment variables:
@@ -31,7 +31,7 @@ VITE_SUPABASE_ANON_KEY="<your_publishable_key>"
 
 ```ts
 // main.ts
-import { useSupabaseClient } from "@supabase-community/vue";
+import { useSupabaseClient } from "@supabase-community/vue-supabase";
 
 const supabase = useSupabaseClient({
   supabaseUrl: import.meta.env.VITE_SUPABASE_URL,
@@ -44,7 +44,7 @@ const supabase = useSupabaseClient({
 ```ts
 // App.vue
 <script setup lang="ts">
-import { useSupabaseClient } from "@supabase-community/vue";
+import { useSupabaseClient } from "@supabase-community/vue-supabase";
 
 const supabase = useSupabaseClient();
 const { data, error } = await supabase.from("profiles").select("*");
@@ -92,7 +92,7 @@ You can either define your own local types or generate them from your Supabase p
 Local type registration:
 
 ```ts
-import { useSupabaseClient } from "@supabase-community/vue";
+import { useSupabaseClient } from "@supabase-community/vue-supabase";
 
 interface Database {
   public: {
@@ -123,7 +123,7 @@ npx supabase gen types typescript --project-id <project-id> --schema public > sr
 Then use the generated types in your app:
 
 ```ts
-import { useSupabaseClient } from "@supabase-community/vue";
+import { useSupabaseClient } from "@supabase-community/vue-supabase";
 import type { Database } from "./types/supabase";
 
 const supabase = useSupabaseClient<Database>({
