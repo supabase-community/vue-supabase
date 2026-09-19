@@ -1,6 +1,6 @@
 {
   "name": "@supabase-community/vue-supabase",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "A minimal Vue 3 integration layer for Supabase.",
   "keywords": [
     "vue",
@@ -22,7 +22,7 @@
     "node": ">=22"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.json --outDir dist --declaration --declarationMap false",
+    "build": "tsc -p tsconfig.build.json",
     "test": "vitest run",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "typecheck:playground": "vue-tsc --noEmit -p playground/tsconfig.json",

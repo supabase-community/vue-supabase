@@ -36,7 +36,7 @@ jobs:
 
       - name: Validate package
         run: |
-          npm run lint
+          npx eslint src test --ext .ts
           npm run typecheck
           npm test
           npm run build
