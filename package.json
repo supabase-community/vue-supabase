@@ -21,6 +21,10 @@
   "engines": {
     "node": ">=22"
   },
+  "stackblitz": {
+    "installDependencies": false,
+    "startCommand": "npm run stackblitz"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "test": "vitest run",
@@ -29,7 +33,8 @@
     "lint": "eslint . --ext .ts",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "dev": "cd playground && npm run dev"
+    "dev": "cd playground && npm run dev",
+    "stackblitz": "cd .stackblitz && npm install && npm run dev"
   },
   "main": "dist/index.js",
   "module": "dist/index.js",
